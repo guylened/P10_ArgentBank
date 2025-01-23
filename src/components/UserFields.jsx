@@ -9,14 +9,14 @@ const FIELD_TYPES = {
   PASSWORD: 5,  
 };
 
-export const UserFields = ({ type, value = "", onChange, disabled = false }) => {
+export const UserFields = ({ type, value = "", defaultValue ="", onChange, disabled = false }) => {
   switch (type) {
     case FIELD_TYPES.USERNAME:
       return (
         <>
         <div className="input-wrapper">
             <label htmlFor="username">User name</label>
-            <input type="text" id="username" autoComplete="username" onChange={onChange} defaultValue={value} disabled={disabled} />
+            <input type="text" id="username" autoComplete="username" onChange={onChange} defaultValue={defaultValue} value={value} disabled={disabled} />
           </div>          
         </>
       );
@@ -67,6 +67,7 @@ UserFields.propTypes = {
   type: PropTypes.number.isRequired,
   disabled: PropTypes.bool,
   value: PropTypes.string,
+  defaultValue: PropTypes.string,
   onChange: PropTypes.func,
 };
 

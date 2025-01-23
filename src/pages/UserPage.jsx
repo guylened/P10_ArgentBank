@@ -4,15 +4,25 @@ import { Button } from "../components/Button.jsx";
 import { EditNameForm } from "../components/EditNameForm.jsx";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-
+import { useEffect } from "react"
 
 export const UserPage = () => {
   const userAuth = useSelector((state)=> state.TokenReducer.isAuthenticated);
   const userData = useSelector((state)=> state.UserDataReducer);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!userAuth) {
+      navigate("/"); 
+    }
+  }, [userAuth, navigate]);
+
+  
+  if (!userAuth) {
+    return null;
+  }
   return (
-    <>
-     {userAuth ? (
+    
       <main className="main bg-dark">
     <div className="header">
       <h1>Welcome back<br />{userData.userName}!</h1>
@@ -28,8 +38,7 @@ export const UserPage = () => {
     <AccountCard accountTitle="Argent Bank Savings (x6712)" accountAmount="$10,928.42" amountDescription="Available Balance"></AccountCard>
     <AccountCard accountTitle="Argent Bank Credit Card (x8349)" accountAmount="$184.30" amountDescription="Current Balance"></AccountCard>    
   </main>
-    ) : (navigate(`/login`))    
-}
-    </>
+       
+
    );
 };

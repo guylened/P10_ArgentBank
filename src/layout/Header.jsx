@@ -1,16 +1,22 @@
 import "../styles/main.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/img/argentBankLogo.png";
 import { Button } from "../components/Button";
-import { useSelector } from "react-redux";
-import { useDispatch  } from "react-redux";
-import { setUserLogoutReset } from "../api-redux/reducers-actions/index";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import { SignOut } from "../api-redux/SignOut";
 
 export const Header =  () => {  
   const userAuth = useSelector((state)=> state.TokenReducer.isAuthenticated);
   const userData = useSelector((state)=> state.UserDataReducer);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const rememberUserCkecked = useSelector((state)=> state.RememberUserReducer.rememberMe);
+    const userEmail = useSelector((state)=> state.RememberUserReducer.email);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+  const handleSignOut = () => {
+    SignOut( rememberUserCkecked, userEmail, navigate, dispatch);
+  };
 
   return (
     <header>
@@ -30,9 +36,11 @@ export const Header =  () => {
           {userAuth ? (
             <div className="main-nav-log">
               <i className="fa fa-user-circle"></i>
-              <p className="main-nav-item">{userData.userName}</p>
+              <NavLink className="main-nav-item" to="/profile">
+              {userData.userName}
+              </NavLink>              
               <i className="fa fa-arrow-circle-right"></i>
-              <Button className="main-nav-button" type={1} value="Sign out" onClick={() => {dispatch(setUserLogoutReset()); navigate('/')}} />
+              <Button className="main-nav-button" type={1} value="Sign out" onClick={handleSignOut} />
               </div>
           ) : (
             <div className="main-nav-log">

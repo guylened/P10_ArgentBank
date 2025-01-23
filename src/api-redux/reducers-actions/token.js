@@ -1,4 +1,5 @@
-const SET_TOKEN = "SET_TOKEN";
+const SET_USER_TOKEN = "SET_USER_TOKEN";
+const CLEAR_USER_TOKEN = "CLEAR_USER_TOKEN";
 
 const initialState = {
   token: "",
@@ -7,8 +8,10 @@ const initialState = {
 
 export const TokenReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_TOKEN:
+    case SET_USER_TOKEN:
       return { ...state, token: action.payload, isAuthenticated: true };
+    case CLEAR_USER_TOKEN:
+      return initialState;
     default:
       return state;
   }
@@ -16,6 +19,10 @@ export const TokenReducer = (state = initialState, action) => {
 
 // Action
 export const setToken = (token) => ({
-  type: SET_TOKEN,
+  type: SET_USER_TOKEN,
   payload: token,
+});
+
+export const clearUserToken = () => ({
+  type: CLEAR_USER_TOKEN,
 });

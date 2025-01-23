@@ -9,6 +9,8 @@ export const ErrorPage = () => {
   const a = "Go to home page";
   return (
     <>
+   {error.status ? (
+    <>
       <Header />
       <main className="bg-dark">
         <div className="errorCard">
@@ -21,6 +23,23 @@ export const ErrorPage = () => {
         </div>
       </main>
       <Footer />
+      </>
+    ) : 
+      (
+        <>
+      <Header />
+        <main className="bg-dark">
+          <div className="errorCard">            
+            <p className="messageError">An error occurred, please try again.</p>
+            <Link to={`./`} className="linkHome">
+              {" "}
+              {a}
+            </Link>
+          </div>
+        </main>
+        <Footer />
+        </>)        
+   }
     </>
   );
 };

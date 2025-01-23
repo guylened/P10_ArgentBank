@@ -7,10 +7,10 @@ si vérification données api KO > affichage message d'erreur
 Page User / Profile:
 L’affichage de la page est conditionné à la présence du token/état de connexion
 Les données utilisateurs sont affichées grace au store Redux
-Lors de l'édition du username : lors du clic sur save > stocker l'username renseigné (update) sur le store redux et faire put api :
-si api OK > fermer le formulaire d'édition et afficher le nouvel username sur profil depuis le store redux
-si api KO > affichage message d'erreur et suppression du store du nouvel username (récupération de l'état antérieur)
+Lors de l'édition du username : lors du clic sur save > stocker le nouvel username renseigné sur le store redux et faire put api :
+si api OK > fermer le formulaire d'édition, update user data du store redux avec le nouvel username stocké sur store et afficher le nouvel username sur profil depuis user data du store redux
+si api KO > affichage message d'erreur
 
 Déconnexion User:
-Lors du clic sur bouton sign out > réinitialisation du store redux complète + renvoi vers la page sign in
+Lors du clic sur bouton sign out > réinitialisation du store redux complète + renvoi vers la page home
 faire une fonction sign out dans onclick ?

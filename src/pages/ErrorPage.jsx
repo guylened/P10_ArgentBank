@@ -5,17 +5,16 @@ import { Footer } from "../layout/Footer.jsx";
 
 export const ErrorPage = () => {
   const error = useRouteError();
-  console.error(error);
-  const p = "La page que vous demandez n'existe pas.";
-  const a = "Retourner sur la page d'accueil";
+  console.log(error)
+  const a = "Go to home page";
   return (
     <>
       <Header />
       <main className="bg-dark">
-        <div className="errorSection">
-          <p className="errorStatus">404</p>
-          <p className="messageError">{p}</p>
-          <Link to={`./`} className="linkHomeError">
+        <div className="errorCard">
+          <p className="errorStatus">{error.status}</p>
+          <p className="messageError">{error.statusText}</p>
+          <Link to={`./`} className="linkHome">
             {" "}
             {a}
           </Link>

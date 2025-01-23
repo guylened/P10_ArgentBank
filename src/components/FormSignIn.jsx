@@ -3,7 +3,7 @@ import { UserFields } from "./UserFields";
 import { Button } from "./Button";
 import "../styles/main.css";
 import {SignIn} from "../api-redux/SignIn"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -12,6 +12,7 @@ export const FormSignIn = () => {
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const errorMessage = useSelector((state) => state.ErrorMessageReducer);
   
   const handleSignIn = () => {    
     SignIn( email, password, navigate, dispatch);
@@ -35,7 +36,8 @@ export const FormSignIn = () => {
       <div className="input-remember">
         <input type="checkbox" id="remember-me" />
         <label htmlFor="remember-me">Remember me</label>
-      </div>      
+      </div> 
+      {errorMessage && <p className="errorLoginMessage">{errorMessage}</p>}     
       <Button
         type={2}
         className="sign-in-button"
@@ -44,3 +46,5 @@ export const FormSignIn = () => {
     </form>
   );
 };
+
+// afficher message d'erreur

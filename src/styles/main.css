@@ -322,23 +322,36 @@ body {
   }
 }
 
-.errorSection {
+.errorCard {
   position: relative;
   top: 2rem;
-  width: 200px;
+  width: 300px;
   background: white;
   padding: 2rem;
-  text-align: left;
+  text-align: center;
   margin: 0 auto;
+  margin-bottom: 6rem;
 }
 
-.errorSection .errorStatus {
+.errorCard .errorStatus {
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 4rem;
   margin: 0;
+  color: #42b983;
 }
 
-.errorSection .messageError {
-  margin-bottom: 0;
-  font-size: 0.9rem;
+.errorCard .messageError {
+  font-size: 2rem;
+}
+.errorCard .linkHome {
+  font-size: 1rem;
+  color: #2c3e50;
+}
+.errorCard .linkHome:hover {
+  color: #42b983;
+}
+
+.errorLoginMessage {
+  font-size: 1.2rem;
+  color: #12002b;
 }

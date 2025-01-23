@@ -32,7 +32,7 @@ export const Header =  () => {
               <i className="fa fa-user-circle"></i>
               <p className="main-nav-item">{userData.userName}</p>
               <i className="fa fa-arrow-circle-right"></i>
-              <Button className="main-nav-button" type={1} value="Sign out" onClick={() => {dispatch(setUserLogoutReset()); navigate('/login')}} />
+              <Button className="main-nav-button" type={1} value="Sign out" onClick={() => {dispatch(setUserLogoutReset()); navigate('/')}} />
               </div>
           ) : (
             <div className="main-nav-log">

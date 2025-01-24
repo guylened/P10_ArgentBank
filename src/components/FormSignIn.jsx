@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { UserFields } from "./UserFields";
 import { Button } from "./Button";
 import "../styles/main.css";
@@ -6,16 +6,18 @@ import {SignIn} from "../api-redux/SignIn"
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setRememberChecked, setRememberUnchecked } from '../api-redux/reducers-actions/rememberMe';
+import { clearErrorMessage } from '../api-redux/reducers-actions/errorMessage';   
 
 export const FormSignIn = () => {
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [rememberMe, setRememberMe] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const errorMessage = useSelector((state) => state.ErrorMessageReducer.errorMessage);
   const userEmail = useSelector((state)=> state.RememberUserReducer.email);
-  
+
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState(userEmail || '')
+  const [rememberMe, setRememberMe] = useState(true);
   
   const handleSignIn = () => {    
     SignIn( email, password, navigate, dispatch);    
@@ -30,6 +32,16 @@ export const FormSignIn = () => {
       dispatch(setRememberUnchecked());
     }
   };
+
+  useEffect(() => {
+    if (errorMessage) {
+      const timer = setTimeout(() => {
+        dispatch(clearErrorMessage());
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage, dispatch]);
   
   return (
     <form onSubmit={(e) => {
@@ -38,8 +50,7 @@ export const FormSignIn = () => {
     }}>
       <UserFields
         type={4}
-        onChange={(e) => setEmail(e.target.value)}
-        defaultValue = {userEmail}
+        onChange={(e) => setEmail(e.target.value)}        
         value={email}
       />
       <UserFields

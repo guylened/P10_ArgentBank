@@ -4,7 +4,7 @@ import { clearUserToken } from "./reducers-actions/token";
 import { clearUserData } from "./reducers-actions/userData";
 
 
-export const SignOut = (rememberUserCkecked, userEmail, navigate, dispatch) => {
+export const SignOut = (rememberUserCkecked, userEmail, dispatch) => {
   
 
    if (rememberUserCkecked) { 

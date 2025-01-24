@@ -4,12 +4,13 @@ import { Button } from "../components/Button.jsx";
 import { EditNameForm } from "../components/EditNameForm.jsx";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export const UserPage = () => {
   const userAuth = useSelector((state)=> state.TokenReducer.isAuthenticated);
   const userData = useSelector((state)=> state.UserDataReducer);
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+  const [isFormOpened, setIsFormOpened] = useState(false);
 
   useEffect(() => {
     if (!userAuth) {
@@ -21,16 +22,29 @@ export const UserPage = () => {
   if (!userAuth) {
     return null;
   }
+ 
+
   return (
     
       <main className="main bg-dark">
     <div className="header">
       <h1>Welcome back<br />{userData.userName}!</h1>
-      <EditNameForm>{({ setIsOpened }) => (
-      <Button className="edit-button" value="Edit Name" type={1} onClick={() => setIsOpened(true)} ></Button>
-    )} 
-      </EditNameForm>
-           
+
+      {!isFormOpened && (
+          <Button
+            className="edit-button"
+            value="Edit Name"
+            type={1}
+            onClick={() => setIsFormOpened(true)}
+          ></Button>
+        )}
+        
+        <EditNameForm
+          opened={isFormOpened}
+          onClose={() => setIsFormOpened(false)}
+        />
+
+               
       
     </div>
     <h2 className="sr-only">Accounts</h2>

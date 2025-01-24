@@ -293,6 +293,7 @@ body {
 
 .editNameButton {
   display: flex;
+  justify-content: center;
   gap: 30px;
 }
 
@@ -354,4 +355,9 @@ body {
 .errorLoginMessage {
   font-size: 1rem;
   color: #12002b;
+}
+
+.errorUpdateUserMessage {
+  font-size: 1rem;
+  color: #fff;
 }

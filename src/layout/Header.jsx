@@ -3,19 +3,17 @@ import { NavLink } from "react-router-dom";
 import logo from "../assets/img/argentBankLogo.png";
 import { Button } from "../components/Button";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
 import { SignOut } from "../api-redux/SignOut";
 
 export const Header =  () => {  
   const userAuth = useSelector((state)=> state.TokenReducer.isAuthenticated);
   const userData = useSelector((state)=> state.UserDataReducer);
   const rememberUserCkecked = useSelector((state)=> state.RememberUserReducer.rememberMe);
-    const userEmail = useSelector((state)=> state.RememberUserReducer.email);
-    const navigate = useNavigate();
+    const userEmail = useSelector((state)=> state.UserDataReducer.email);    
     const dispatch = useDispatch();
 
   const handleSignOut = () => {
-    SignOut( rememberUserCkecked, userEmail, navigate, dispatch);
+    SignOut( rememberUserCkecked, userEmail, dispatch);
   };
 
   return (

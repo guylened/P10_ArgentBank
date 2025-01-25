@@ -37,7 +37,7 @@ export const Header =  () => {
               {userData.userName}
               </NavLink>              
               <i className="fa fa-arrow-circle-right"></i>
-              <Button className="main-nav-button" type={1} value="Sign out" onClick={handleSignOut} />
+              <Button type={1} className="main-nav-button" value="Sign out" onClick={handleSignOut} />
               </div>
           ) : (
             <div className="main-nav-login">

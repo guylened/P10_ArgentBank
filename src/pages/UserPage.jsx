@@ -37,7 +37,7 @@ export const UserPage = () => {
           className="edit-button"          
           value="Edit Name"            
           onClick={() => setIsFormOpened(true)}
-          ></Button>
+          />
         )}
         
         <EditNameForm

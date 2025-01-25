@@ -52,13 +52,13 @@ export const EditNameForm = ({ opened, onClose }) => {
             e.preventDefault();
             handleEditUserName();      
           }}>
-            <UserFields type={1} value={userName} onChange={(e) => setUserName(e.target.value)}></UserFields>
-            <UserFields type={2} value={userData.firstName} disabled={true}></UserFields>
-            <UserFields type={3} value={userData.lastName} disabled={true}></UserFields>  
+            <UserFields type={1} value={userName} onChange={(e) => setUserName(e.target.value)}/>
+            <UserFields type={2} value={userData.firstName} disabled={true}/>
+            <UserFields type={3} value={userData.lastName} disabled={true}/> 
             <div className="editNameButton">
             {errorMessage && <p className="s-important-text">{errorMessage}</p>} 
-            <Button type={2} value="Save" ></Button>
-            <Button type={1} value="Cancel" onClick={handleCancel} ></Button> 
+            <Button type={2} value="Save" />
+            <Button type={1} value="Cancel" onClick={handleCancel} />
             </div>        
                        
         </form>       

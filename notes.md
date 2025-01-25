@@ -20,3 +20,5 @@ Lors du clic sur bouton sign out > réinitialisation du store redux complète + 
 faire une fonction sign out dans onclick ?
 
 PB : reload page = reset store redux
+
+composant : supprimer fermeture inutile + vérifier ordre des props données dans btn

@@ -12,7 +12,7 @@ export const AccountCard = ({accountTitle, accountAmount, amountDescription}) =>
         <p>{amountDescription}</p>
       </div> 
       <div className="account-content-wrapper cta">
-        <Button value="View transactions" type={1} ></Button>        
+        <Button type={1} value="View transactions" />   
       </div>
     </section>
       )

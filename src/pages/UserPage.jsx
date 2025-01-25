@@ -26,16 +26,17 @@ export const UserPage = () => {
 
   return (
     
-      <main className="main bg-dark">
-    <div className="header">
-      <h1>Welcome back<br />{userData.userName}!</h1>
+      <main className="bg-main-color">
+    <section className="welcome-banner">
+    <h2 className="sr-only">User profile</h2>
+      <h3 className="title">Welcome back<br />{userData.userName}!</h3>
 
       {!isFormOpened && (
-          <Button
-            className="edit-button"
-            value="Edit Name"
-            type={1}
-            onClick={() => setIsFormOpened(true)}
+          <Button 
+          type={1}
+          className="edit-button"          
+          value="Edit Name"            
+          onClick={() => setIsFormOpened(true)}
           ></Button>
         )}
         
@@ -46,11 +47,13 @@ export const UserPage = () => {
 
                
       
-    </div>
+    </section>
+    <section>
     <h2 className="sr-only">Accounts</h2>
     <AccountCard accountTitle="Argent Bank Checking (x8349)" accountAmount="$2,082.79" amountDescription="Available Balance"></AccountCard>
     <AccountCard accountTitle="Argent Bank Savings (x6712)" accountAmount="$10,928.42" amountDescription="Available Balance"></AccountCard>
-    <AccountCard accountTitle="Argent Bank Credit Card (x8349)" accountAmount="$184.30" amountDescription="Current Balance"></AccountCard>    
+    <AccountCard accountTitle="Argent Bank Credit Card (x8349)" accountAmount="$184.30" amountDescription="Current Balance"></AccountCard> 
+    </section>   
   </main>
        
 

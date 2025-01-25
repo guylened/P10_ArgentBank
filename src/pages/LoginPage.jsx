@@ -4,10 +4,11 @@ import { FormSignIn } from "../components/FormSignIn.jsx"
 
 export const LoginPage = () => {
   return (
-    <main className="main bg-dark">
-      <section className="sign-in-content">
+    <main className="bg-main-color">
+      <section className="contentCard">
+      <h2 className="sr-only">Sign In form</h2>
         <i className="fa fa-user-circle sign-in-icon"></i>
-        <h1>Sign In</h1>
+        <h3 className="title">Sign In</h3>
         <FormSignIn />
       </section>
     </main>

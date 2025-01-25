@@ -62,10 +62,9 @@ export const FormSignIn = () => {
         <input type="checkbox" checked={rememberMe} onChange={handleCheckbox} id="remember-me" />
         <label htmlFor="remember-me">Remember me</label>
       </div>   
-      {errorMessage && <p className="errorLoginMessage">{errorMessage}</p>}        
+      {errorMessage && <p className="s-important-text">{errorMessage}</p>}        
       <Button
-        type={2}
-        className="sign-in-button"
+        type={2}        
         value="Sign In"         
       />
     </form>

@@ -19,11 +19,12 @@ export const Button = ({ type, value, className, onClick }) => {
       );
     case BUTTON_TYPES.SUBMIT:
       return (
-        <input
+        <button
            type="submit"          
-          className={className}  
-          value={value}                              
-        />
+          className={className}
+          >  
+          {value}                              
+          </button>
       );        
   }
 };

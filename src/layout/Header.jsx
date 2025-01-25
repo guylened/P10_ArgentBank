@@ -1,6 +1,6 @@
 import "../styles/main.css";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/img/argentBankLogo.png";
+import logo from "../assets/img/argentBankLogo.webp";
 import { Button } from "../components/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { SignOut } from "../api-redux/SignOut";
@@ -21,8 +21,7 @@ export const Header =  () => {
       <nav className="main-nav">
         <div className="main-nav-logo">
           <NavLink to="/">
-            <img
-              className="main-nav-logo-image"
+            <img              
               src={logo}
               alt="Argent Bank Logo"
             />
@@ -32,7 +31,7 @@ export const Header =  () => {
 
         <div>
           {userAuth ? (
-            <div className="main-nav-log">
+            <div className="main-nav-login">
               <i className="fa fa-user-circle"></i>
               <NavLink className="main-nav-item" to="/profile">
               {userData.userName}
@@ -41,7 +40,7 @@ export const Header =  () => {
               <Button className="main-nav-button" type={1} value="Sign out" onClick={handleSignOut} />
               </div>
           ) : (
-            <div className="main-nav-log">
+            <div className="main-nav-login">
               <i className="fa fa-user-circle"></i>
               <NavLink className="main-nav-item" to="/login">
                 Sign In

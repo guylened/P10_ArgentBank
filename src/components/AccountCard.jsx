@@ -7,12 +7,12 @@ export const AccountCard = ({accountTitle, accountAmount, amountDescription}) =>
   return (
     <section className="account">
       <div className="account-content-wrapper">
-        <h3 className="account-title">{accountTitle}</h3>
-        <p className="account-amount">{accountAmount}</p>
-        <p className="account-amount-description">{amountDescription}</p>
+        <h3 className="s-important-text">{accountTitle}</h3>
+        <p className="l-important-text">{accountAmount}</p>
+        <p>{amountDescription}</p>
       </div> 
       <div className="account-content-wrapper cta">
-        <Button className="transaction-button" value="View transactions" type={1} ></Button>        
+        <Button value="View transactions" type={1} ></Button>        
       </div>
     </section>
       )

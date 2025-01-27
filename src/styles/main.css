@@ -1,4 +1,5 @@
-html {
+html,
+body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -6,13 +7,17 @@ html {
   color: #2c3e50;
   font-size: 0.9rem;
   font-weight: normal;
-}
-
-body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  height: 100%;
   min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 button {
@@ -59,6 +64,8 @@ p {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
@@ -296,12 +303,14 @@ main {
 
 footer {
   position: relative;
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-top: 2px solid #ccc;
   padding: 2rem 0 1.5rem;
 }
-/* pb footer à régler*/
 
 @media (min-width: 920px) {
   html {

@@ -5,12 +5,12 @@ import { Button } from "../components/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { SignOut } from "../api-redux/SignOut";
 
-export const Header =  () => {  
-  const userAuth = useSelector((state)=> state.TokenReducer.isAuthenticated);
-  const userData = useSelector((state)=> state.UserDataReducer);
+export const Header =  () => {   
+  const userData = useSelector((state)=> state.UserData);  
   const rememberUserCkecked = useSelector((state)=> state.RememberUserReducer.rememberMe);
-    const userEmail = useSelector((state)=> state.UserDataReducer.email);    
-    const dispatch = useDispatch();
+  const userAuth = userData.isAuthenticated;  
+  const userEmail = userData.email;    
+  const dispatch = useDispatch();
 
   const handleSignOut = () => {
     SignOut( rememberUserCkecked, userEmail, dispatch);

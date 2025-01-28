@@ -1,6 +1,6 @@
 import {setErrorMessage} from "./reducers-actions/errorMessage"
-import {setUserData} from "./reducers-actions/userData";
-import { setToken } from "./reducers-actions/token";
+import {userDataSlice} from "./reducers-actions/userData";
+
 
 
 
@@ -23,7 +23,7 @@ export const SignIn = async ( email, password, navigate, dispatch) => {
       
   
       // set token
-      dispatch(setToken(data.body.token));
+      dispatch(userDataSlice.actions.setToken(data.body.token));
 
         
       //API get data User
@@ -39,7 +39,7 @@ export const SignIn = async ( email, password, navigate, dispatch) => {
         throw new Error("Failed to fetch user data");
       }
       const userData = await userResponse.json();      
-      dispatch(setUserData(userData.body));     
+      dispatch(userDataSlice.actions.setUserData(userData.body));     
       // redirection page profile
       navigate(`/profile`);
 

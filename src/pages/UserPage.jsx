@@ -7,9 +7,9 @@ import { useNavigate } from "react-router";
 import { useEffect, useState } from "react"
 
 export const UserPage = () => {
-  const userAuth = useSelector((state)=> state.TokenReducer.isAuthenticated);
-  const userData = useSelector((state)=> state.UserDataReducer);
-    const navigate = useNavigate();
+  const userData = useSelector((state)=> state.UserData);
+  const userAuth = userData.isAuthenticated;  
+  const navigate = useNavigate();
   const [isFormOpened, setIsFormOpened] = useState(false);
 
   useEffect(() => {

@@ -6,15 +6,16 @@ import { useSelector, useDispatch } from "react-redux";
 import  { updateUserName } from "../api-redux/EditUserName.jsx";
 
 
+
 export const EditNameForm = ({ opened, onClose }) => {
     const dispatch = useDispatch();
-   
     const errorMessage = useSelector((state) => state.ErrorMessageReducer.errorMessage);
-    const userData = useSelector((state)=> state.UserDataReducer);
-    const token = useSelector((state)=> state.TokenReducer.token)
-    const [isOpened, setIsOpened] = useState(opened);  
-    const [userName, setUserName] = useState(userData.userName)
+    const userData = useSelector((state)=> state.UserData);
+    const token = userData.token;
     const initialUserName = userData.userName;
+    const [isOpened, setIsOpened] = useState(opened);  
+    const [userName, setUserName] = useState(userData.userName);
+    
  
 
  useEffect(() => {

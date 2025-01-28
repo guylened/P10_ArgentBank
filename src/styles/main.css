@@ -53,11 +53,11 @@ a:hover {
   color: #42b983;
 }
 
-a:active {
+a.active {
   color: #42b983;
   text-decoration: none;
 }
-/* pb page active à régler*/
+
 p {
   margin: 0;
   padding: 0;

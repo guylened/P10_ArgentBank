@@ -1,4 +1,4 @@
-import { updateUserData } from "./reducers-actions/userData";
+import { userDataSlice } from "./reducers-actions/userData";
 import { setErrorMessage } from "./reducers-actions/errorMessage";
 
 export const updateUserName = async ( userName, token, dispatch) => {
@@ -16,7 +16,7 @@ export const updateUserName = async ( userName, token, dispatch) => {
       
   
       if (response.ok) {        
-        dispatch(updateUserData(userName));
+        dispatch(userDataSlice.actions.updateUserData(userName));
         return true;        
       } else {        
         return false;

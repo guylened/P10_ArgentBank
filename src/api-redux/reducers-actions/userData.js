@@ -1,41 +1,32 @@
-const SET_USER_DATA = "SET-USER-DATA";
-const CLEAR_USER_DATA = "CLEAR_USER_DATA";
-const UPDATE_USER_DATA = "UPDATE_USER_DATA";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  id: "",
   email: "",
   firstName: "",
   lastName: "",
   userName: "",
   createdAt: "",
   updatedAt: "",
-  id: "",
+  token: "",
+  isAuthenticated: false,
 };
 
-export const UserDataReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case SET_USER_DATA:
+export const userDataSlice = createSlice({
+  name: "UserData",
+  initialState,
+  reducers: {
+    setUserData: (state, action) => {
       return { ...state, ...action.payload };
-    case UPDATE_USER_DATA:
+    },
+    setToken: (state, action) => {
+      return { ...state, token: action.payload, isAuthenticated: true };
+    },
+    updateUserData: (state, action) => {
       return { ...state, userName: action.payload };
-    case CLEAR_USER_DATA:
+    },
+    clearUserData: () => {
       return initialState;
-    default:
-      return state;
-  }
-};
-
-// Action
-export const setUserData = (userData) => ({
-  type: SET_USER_DATA,
-  payload: userData,
-});
-
-export const clearUserData = () => ({
-  type: CLEAR_USER_DATA,
-});
-
-export const updateUserData = (userName) => ({
-  type: UPDATE_USER_DATA,
-  payload: userName,
+    },
+  },
 });

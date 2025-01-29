@@ -28,7 +28,7 @@ When clicking on Save:
 
       - [ ] display error message
 
-  When clicking on Cancel:
+When clicking on Cancel:
 
 - [ ] reset form
 - [ ] close the editing form

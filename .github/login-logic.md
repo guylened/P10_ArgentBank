@@ -14,13 +14,13 @@ When submitting the form on the Sign in page :
 
 - [ ] make the api call with the path: http://localhost:3001/user/login
 
-      If API data check = OK :
+  If API data check = OK :
 
   - [ ] store the connection state in the store (token)
   - [ ] retrieve user data
   - [ ] automatic redirection to the profile page
 
-        If API data check = KO :
+    If API data check = KO :
 
   - [ ] automatic redirection to the profile page
 

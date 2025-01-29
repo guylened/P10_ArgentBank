@@ -18,15 +18,15 @@ When clicking on Save:
 
 - [ ] call API to modify username
 
-      If API response = OK :
+If API response = OK :
 
-      - [ ] update userData of the redux store with the new username
-      - [ ] close the edit form
-      - [ ] automatic display of the new username on the profile page
+- [ ] update userData of the redux store with the new username
+- [ ] close the edit form
+- [ ] automatic display of the new username on the profile page
 
-      If API response = KO :
+If API response = KO :
 
-      - [ ] display error message
+- [ ] display error message
 
 When clicking on Cancel:
 

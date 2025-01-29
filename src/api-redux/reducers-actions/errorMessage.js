@@ -1,25 +1,17 @@
-const SET_ERROR_MESSAGE = "SET_ERROR_MESSAGE";
-const CLEAR_ERROR_MESSAGE = "CLEAR_ERROR_MESSAGE";
+import { createAction } from "@reduxjs/toolkit";
+
+export const setErrorMessage = createAction("set_error_message");
+export const clearErrorMessage = createAction("clear_error_message");
 
 const initialState = { errorMessage: "" };
 
 export const ErrorMessageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_ERROR_MESSAGE:
+    case setErrorMessage.type:
       return { ...state, errorMessage: action.payload };
-    case CLEAR_ERROR_MESSAGE:
+    case clearErrorMessage.type:
       return initialState;
     default:
       return state;
   }
 };
-
-// Action
-export const setErrorMessage = (message) => ({
-  type: SET_ERROR_MESSAGE,
-  payload: message,
-});
-
-export const clearErrorMessage = () => ({
-  type: CLEAR_ERROR_MESSAGE,
-});

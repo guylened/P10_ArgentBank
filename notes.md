@@ -21,4 +21,5 @@ faire une fonction sign out dans onclick ?
 
 PB : reload page = reset store redux
 
-composant : supprimer fermeture inutile + vérifier ordre des props données dans btn
+Sur fichier yaml :
+ajouter sur transaction la case numéro de compte affilié / ou id compte et demander id compte

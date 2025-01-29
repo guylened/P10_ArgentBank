@@ -1,26 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { UserFields } from "./UserFields";
 import { Button } from "./Button";
 import "../styles/main.css";
-import {SignIn} from "../api-redux/SignIn"
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { setRememberChecked, setRememberUnchecked } from '../api-redux/reducers-actions/rememberMe';
-import { clearErrorMessage } from '../api-redux/reducers-actions/errorMessage';   
+import { SignIn } from "../api-redux/SignIn";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import {
+  setRememberChecked,
+  setRememberUnchecked,
+} from "../api-redux/reducers-actions/rememberMe";
+import { clearErrorMessage } from "../api-redux/reducers-actions/errorMessage";
 
 export const FormSignIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const errorMessage = useSelector((state) => state.ErrorMessageReducer.errorMessage);
-  const userEmail = useSelector((state)=> state.RememberUserReducer.email);
+  const errorMessage = useSelector(
+    (state) => state.ErrorMessageReducer.errorMessage
+  );
+  const userEmail = useSelector((state) => state.RememberUserReducer.email);
 
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState(userEmail || '')
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(userEmail || "");
   const [rememberMe, setRememberMe] = useState(true);
-  
-  const handleSignIn = () => {    
-    SignIn( email, password, navigate, dispatch);    
+
+  const handleSignIn = () => {
+    SignIn(email, password, navigate, dispatch);
   };
 
   const handleCheckbox = (e) => {
@@ -42,15 +47,17 @@ export const FormSignIn = () => {
       return () => clearTimeout(timer);
     }
   }, [errorMessage, dispatch]);
-  
+
   return (
-    <form onSubmit={(e) => {
-      e.preventDefault();
-      handleSignIn();      
-    }}>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSignIn();
+      }}
+    >
       <UserFields
         type={4}
-        onChange={(e) => setEmail(e.target.value)}        
+        onChange={(e) => setEmail(e.target.value)}
         value={email}
       />
       <UserFields
@@ -59,14 +66,16 @@ export const FormSignIn = () => {
         value={password}
       />
       <div className="input-remember">
-        <input type="checkbox" checked={rememberMe} onChange={handleCheckbox} id="remember-me" />
+        <input
+          type="checkbox"
+          checked={rememberMe}
+          onChange={handleCheckbox}
+          id="remember-me"
+        />
         <label htmlFor="remember-me">Remember me</label>
-      </div>   
-      {errorMessage && <p className="s-important-text">{errorMessage}</p>}        
-      <Button
-        type={2}        
-        value="Sign In"         
-      />
+      </div>
+      {errorMessage && <p className="s-important-text">{errorMessage}</p>}
+      <Button type={2} value="Sign In" />
     </form>
   );
 };

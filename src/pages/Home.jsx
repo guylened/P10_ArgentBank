@@ -4,10 +4,9 @@ import { Features } from "../components/Features.jsx";
 
 export const Home = () => {
   return (
-   <main>
-    <Hero />
-    <Features />
-   </main>     
-    
+    <main>
+      <Hero />
+      <Features />
+    </main>
   );
 };

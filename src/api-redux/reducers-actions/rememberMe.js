@@ -1,6 +1,8 @@
-const REMEMBER_USER_EMAIL = "REMEMBER_USER_EMAIL";
-const REMEMBER_USER_UNCHECKED = "REMEMBER_USER_UNCHECKED";
-const REMEMBER_USER_CHECKED = "REMEMBER_USER_CHECKED";
+import { createAction } from "@reduxjs/toolkit";
+
+export const setUserEmail = createAction("remember_user_email");
+export const setRememberUnchecked = createAction("remember_user_unchecked");
+export const setRememberChecked = createAction("remember_user_checked");
 
 const initialState = {
   rememberMe: true,
@@ -9,27 +11,13 @@ const initialState = {
 
 export const RememberUserReducer = (state = initialState, action) => {
   switch (action.type) {
-    case REMEMBER_USER_EMAIL:
+    case setUserEmail.type:
       return { ...state, email: action.payload };
-    case REMEMBER_USER_UNCHECKED:
+    case setRememberUnchecked.type:
       return { ...state, email: "", rememberMe: false };
-    case REMEMBER_USER_CHECKED:
+    case setRememberChecked.type:
       return { ...state, rememberMe: true };
     default:
       return state;
   }
 };
-
-// Action
-export const setUserEmail = (email) => ({
-  type: REMEMBER_USER_EMAIL,
-  payload: email,
-});
-
-export const setRememberUnchecked = () => ({
-  type: REMEMBER_USER_UNCHECKED,
-});
-
-export const setRememberChecked = () => ({
-  type: REMEMBER_USER_CHECKED,
-});

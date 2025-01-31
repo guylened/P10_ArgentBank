@@ -8,7 +8,7 @@ import { updateUserName } from "../api-redux/EditUserName.jsx";
 export const EditNameForm = ({ opened, onClose }) => {
   const dispatch = useDispatch();
   const errorMessage = useSelector(
-    (state) => state.ErrorMessageReducer.errorMessage
+    (state) => state.errorMessageReducer.errorMessage
   );
   const userData = useSelector((state) => state.UserData);
   const token = userData.token;

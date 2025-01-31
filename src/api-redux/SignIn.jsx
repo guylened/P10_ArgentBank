@@ -3,7 +3,6 @@ import { userDataSlice } from "./reducers-actions/userData";
 
 export const SignIn = async (email, password, navigate, dispatch) => {
   try {
-    //API connexion
     const response = await fetch("http://localhost:3001/api/v1/user/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -16,10 +15,8 @@ export const SignIn = async (email, password, navigate, dispatch) => {
 
     const data = await response.json();
 
-    // set token
     dispatch(userDataSlice.actions.setToken(data.body.token));
 
-    //API get data User
     const userResponse = await fetch(
       `http://localhost:3001/api/v1/user/profile`,
       {
@@ -36,7 +33,7 @@ export const SignIn = async (email, password, navigate, dispatch) => {
     }
     const userData = await userResponse.json();
     dispatch(userDataSlice.actions.setUserData(userData.body));
-    // redirection page profile
+
     navigate(`/profile`);
   } catch (error) {
     dispatch(setErrorMessage(error.message));

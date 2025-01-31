@@ -3,7 +3,6 @@ import { setErrorMessage } from "./reducers-actions/errorMessage";
 
 export const updateUserName = async (userName, token, dispatch) => {
   try {
-    //API connexion
     const response = await fetch("http://localhost:3001/api/v1/user/profile", {
       method: "PUT",
       headers: {

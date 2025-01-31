@@ -9,7 +9,7 @@ const initialState = {
   email: "",
 };
 
-export const RememberUserReducer = (state = initialState, action) => {
+export const rememberUserReducer = (state = initialState, action) => {
   switch (action.type) {
     case setUserEmail.type:
       return { ...state, email: action.payload };

@@ -5,7 +5,7 @@ export const clearErrorMessage = createAction("clear_error_message");
 
 const initialState = { errorMessage: "" };
 
-export const ErrorMessageReducer = (state = initialState, action) => {
+export const errorMessageReducer = (state = initialState, action) => {
   switch (action.type) {
     case setErrorMessage.type:
       return { ...state, errorMessage: action.payload };

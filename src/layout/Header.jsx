@@ -8,7 +8,7 @@ import { SignOut } from "../api-redux/SignOut";
 export const Header = () => {
   const userData = useSelector((state) => state.UserData);
   const rememberUserCkecked = useSelector(
-    (state) => state.RememberUserReducer.rememberMe
+    (state) => state.rememberUserReducer.rememberMe
   );
   const userAuth = userData.isAuthenticated;
   const userEmail = userData.email;

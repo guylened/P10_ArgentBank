@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import { ErrorMessageReducer } from "./errorMessage";
+import { errorMessageReducer } from "./errorMessage";
 import { userDataSlice } from "./userData";
-import { RememberUserReducer } from "./rememberMe";
+import { rememberUserReducer } from "./rememberMe";
 
 export const rootReducer = combineReducers({
   UserData: userDataSlice.reducer,
-  ErrorMessageReducer,
-  RememberUserReducer,
+  errorMessageReducer,
+  rememberUserReducer,
 });

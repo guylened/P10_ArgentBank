@@ -16,9 +16,9 @@ export const FormSignIn = () => {
   const navigate = useNavigate();
 
   const errorMessage = useSelector(
-    (state) => state.ErrorMessageReducer.errorMessage
+    (state) => state.errorMessageReducer.errorMessage
   );
-  const userEmail = useSelector((state) => state.RememberUserReducer.email);
+  const userEmail = useSelector((state) => state.rememberUserReducer.email);
 
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(userEmail || "");

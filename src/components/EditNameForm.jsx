@@ -4,6 +4,7 @@ import { Button } from "./Button";
 import { UserFields } from "./UserFields.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUserName } from "../api-redux/EditUserName.jsx";
+import { clearErrorMessage } from "../api-redux/reducers-actions/errorMessage";
 
 export const EditNameForm = ({ opened, onClose }) => {
   const dispatch = useDispatch();
@@ -19,6 +20,16 @@ export const EditNameForm = ({ opened, onClose }) => {
   useEffect(() => {
     setIsOpened(opened);
   }, [opened]);
+
+  useEffect(() => {
+    if (errorMessage) {
+      const timer = setTimeout(() => {
+        dispatch(clearErrorMessage());
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage, dispatch]);
 
   const handleClose = () => {
     setIsOpened(false);

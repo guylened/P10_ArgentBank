@@ -4,7 +4,10 @@ import { Button } from "./Button";
 import { UserFields } from "./UserFields.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUserName } from "../api-redux/EditUserName.jsx";
-import { clearErrorMessage } from "../api-redux/reducers-actions/errorMessage";
+import {
+  clearErrorMessage,
+  setErrorMessage,
+} from "../api-redux/reducers-actions/errorMessage";
 
 export const EditNameForm = ({ opened, onClose }) => {
   const dispatch = useDispatch();
@@ -44,10 +47,10 @@ export const EditNameForm = ({ opened, onClose }) => {
       if (success) {
         handleClose();
       } else {
-        console.error("Failed to update username");
+        throw new Error("Failed to update username, please try again");
       }
     } catch (error) {
-      console.error("Failed:", error);
+      dispatch(setErrorMessage(error.message));
     }
   };
   const handleCancel = () => {

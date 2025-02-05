@@ -72,8 +72,8 @@ export const EditNameForm = ({ opened, onClose }) => {
           />
           <UserFields type={2} value={userData.firstName} disabled={true} />
           <UserFields type={3} value={userData.lastName} disabled={true} />
+          {errorMessage && <p className="s-important-text">{errorMessage}</p>}
           <div className="editNameButton">
-            {errorMessage && <p className="s-important-text">{errorMessage}</p>}
             <Button type={2} value="Save" />
             <Button type={1} value="Cancel" onClick={handleCancel} />
           </div>
